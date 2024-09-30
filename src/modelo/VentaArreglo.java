@@ -10,5 +10,5 @@ package modelo;
  * @author OCA-UIE
  */
 public class VentaArreglo {
-    
+
 }

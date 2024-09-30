@@ -6,6 +6,7 @@
 package modelo;
 
 import java.util.Date;
+import javax.naming.spi.DirStateFactory;
 
 /**
  *
@@ -17,6 +18,7 @@ public class Persona {
     String dni;
     String contraseña;
     Tarjeta tarjeta;
+    Venta venta;
 
     public Persona(String nombre, String apellidos, String dni) {
         this.nombre = nombre;
@@ -47,6 +49,18 @@ public class Persona {
     public boolean eliminarTarjeta(){
         boolean result =  true;
         this.tarjeta = null;
+        return result;
+    }
+    
+    public boolean anularVenta(Venta venta){
+        return venta.anular();
+    }
+    
+    public boolean comprar(){
+        boolean result = false;
+        if(tarjeta != null && venta != null){
+            result = true;
+        }
         return result;
     }
     
