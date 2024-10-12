@@ -38,9 +38,5 @@ public class Tarjeta {
 
     public int getCVV() {
         return CVV;
-    }
-    
-    
-    
-    
+    }  
 }

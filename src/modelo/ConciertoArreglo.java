@@ -5,10 +5,21 @@
  */
 package modelo;
 
-/**
- *
- * @author OCA-UIE
- */
-public class ConciertoArreglo {
+public class ConciertoArreglo{
+    private int indice;
+    private Concierto[] concierto;
+
+    public ConciertoArreglo(int aforoConcierto) {
+        this.indice = 0;
+        this.concierto = new Concierto[aforoConcierto];
+    }
+    
+    public void agregarConcierto(Concierto concierto){
+        if(indice < this.concierto.length){
+            this.concierto[indice] = concierto;
+            indice++;
+        }
+    }
+    
     
 }

@@ -48,8 +48,6 @@ public class Zona {
         this.precio = precio;
     }
     
-    
-    
     private boolean generarEntradas(){
         boolean resultado =true;
         for(int i=0; i< this.capacidad; i++){
@@ -68,8 +66,5 @@ public class Zona {
     
     public Entrada[] mostrarEntrada(){
         return this.entradas;
-    }
-    
-    
-    
+    }   
 }

@@ -7,41 +7,37 @@ package modelo;
 import java.util.Scanner;
 import java.util.Date;
 
-public class Concierto {
+public class Concierto{
     private String nombreConcierto;
     private Date fecha;
-    private Zona zona;
+    private Zona[] zona;
 
-    Scanner consola = new Scanner(System.in);
 
-    public Concierto(){
-    }
-
-    public Concierto(String nombreConcierto, Date fecha, String nombre, int capacidad, int precio){
+    public Concierto(String nombreConcierto, Date fecha){
         this.nombreConcierto = nombreConcierto;
         this.fecha = fecha;
-        this.zona = new Zona(nombre, capacidad, precio);
+        this.zona = new Zona[3];
     }
 
-    public boolean agregarZona(){
-        System.out.print("Coloque el nombre de la zona: ");
-        zona.setNombre(consola.nextLine());
-        System.out.print("Coloque su capacidad: ");
-        zona.setCapacidad(Integer.parseInt(consola.nextLine()));
-        System.out.print("Coloque el precio de la entrada: s/");
-        zona.setPrecio(Integer.parseInt(consola.nextLine()));
-        return true;
+    public boolean agregarZona(Zona zona){
+        boolean result = false;
+          for(int i=0; i<3; i++){
+              if(this.zona[i] == null){
+                this.zona[i] = zona;
+                result = true;  
+              }
+          }
+        return result;
     }
 
-    public boolean eliminarZona(){
-        System.out.print("Coloque el nombre de la zona a eliminar: ");
-        String zonaEliminar = consola.nextLine();
-
-        if(zona.getNombre().equals(zonaEliminar)){
-            System.out.println("Se ha eliminado la zona...");
-        } else{
-            System.out.println("Zona no existente o invalida...");
+    public boolean eliminarZona(Zona zona){
+        boolean result = false;
+        for (int i = 0; i < 10; i++) {
+            if(this.zona[i] == zona){
+                this.zona[i] = null;
+                result = true;
+            }
         }
-            return true;
+        return result;
     }
 }

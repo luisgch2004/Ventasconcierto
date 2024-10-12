@@ -29,7 +29,7 @@ public class Entrada {
         }
         return resultado;
     }
-    
+   
     public boolean liberar() {
         boolean result = false;
         if(!this.estado.equals("Disponible")){
@@ -38,7 +38,7 @@ public class Entrada {
         }
         return result;
     }
-    
+   
     public boolean vender() {
         boolean result = false;
         if(this.estado.equals("Disponible")){
@@ -46,7 +46,5 @@ public class Entrada {
             result = true;
         }
         return result;
-    }    
-    
-    
+    }      
 }

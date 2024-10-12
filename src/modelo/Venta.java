@@ -28,9 +28,7 @@ public class Venta {
     }
     
     public boolean anular(){
-        boolean result = true;
-        this.entrada = null;
-        return result;
+        return entrada.liberar();
     }
     
     

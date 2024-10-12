@@ -5,10 +5,20 @@
  */
 package modelo;
 
-/**
- *
- * @author OCA-UIE
- */
 public class VentaArreglo {
+    private int indice;
+    private Venta[] venta;
 
+    public VentaArreglo(int nrventas) {
+        this.indice = 0;
+        this.venta = new Venta[nrventas];
+    }
+    
+    
+    void agregarVentas(Venta venta){
+       if(indice < this.venta.length){
+           this.venta[indice] = venta;
+           indice++;
+       }
+    }
 }
