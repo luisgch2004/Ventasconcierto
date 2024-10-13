@@ -48,7 +48,9 @@ public class App {
                                 persona.setNombre(consola.nextLine());
                                 System.out.print("Coloque sus apellidos: ");
                                 persona.setApellidos(consola.nextLine());
-                              
+                                System.out.print("Coloque su documento de identidad: ");
+                                persona.setDni(consola.nextLine()); 
+                             
                                 personaArreglo.agregarPersonas(persona);
                             }
                             case 2 ->{
