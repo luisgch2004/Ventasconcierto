@@ -23,12 +23,25 @@ public class PersonaArreglo {
         }
     }
     
-    public void agregarPersonas(Persona persona){
+    public boolean agregarPersonas(Persona persona){
+        boolean result = false;
         if(indice < this.persona.length){
             this.persona[indice] = persona;
             indice++;
+            result = true;
         }
+        return result;
     }
     
+    
+    public boolean buscarPersonaPorDniYContraseña(String dni, String contraseña){
+        boolean result = false;
+        for(int i = 0; i < indice; i++){
+            if(this.persona[i].getDni().equals(dni) && this.persona[i].getContraseña().equals(contraseña)){
+                result = true;
+            }
+        }
+        return result;
+    }
     
 }

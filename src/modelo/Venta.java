@@ -18,6 +18,9 @@ public class Venta {
         this.fecha = fecha;
         this.monto = monto;
     }
+
+    public Venta() {
+    }
     
     public Date getFecha() {
         return fecha;
@@ -29,6 +32,26 @@ public class Venta {
     
     public boolean anular(){
         return entrada.liberar();
+    }
+
+    public Entrada getEntrada() {
+        return entrada;
+    }
+    
+    public int getNumero(){
+        return entrada.getNumero();
+    }
+    
+    public void setEntrada(Entrada entrada) {
+        this.entrada = entrada;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
+
+    public void setMonto(int monto) {
+        this.monto = monto;
     }
     
     

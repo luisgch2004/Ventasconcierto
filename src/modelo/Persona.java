@@ -13,15 +13,21 @@ public class Persona {
     String dni;
     String contraseña;
     Tarjeta tarjeta;
+    String estado = "Puede comprar";
     Venta[] venta;
     
-    public Persona(String nombre, String apellidos, String dni){
+    public Persona(String nombre, String apellidos, String dni, String contraseña){
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.dni = dni;
+        this.contraseña = contraseña;
         this.tarjeta = null;
         this.venta = new Venta[4];
     }
+
+    public Persona(){
+    }
+    
     public boolean registrarTarjeta(Tarjeta tarjeta){
         boolean result = false;
         if(this.tarjeta == null && tarjeta != null){
@@ -33,7 +39,7 @@ public class Persona {
     
     public boolean eliminarTarjeta(Tarjeta tarjeta){
         boolean result = false;
-            if(this.tarjeta == null && tarjeta == this.tarjeta){
+            if(this.tarjeta != null && tarjeta == this.tarjeta){
                 this.tarjeta = null;
                 result = true;
             }
@@ -57,6 +63,8 @@ public class Persona {
                 if(this.venta[i] == null){
                     this.venta[i] = venta;
                     result = true;
+                }else{
+                    estado = "Limite de venta alcanzado";
                 }
             }
         }
@@ -73,4 +81,64 @@ public class Persona {
             System.out.println("Tarjeta: " + tarjeta);
         }
     }
+    
+    
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellidos() {
+        return apellidos;
+    }
+
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
+    }
+
+    public String getDni() {
+        return dni;
+    }
+
+    public void setDni(String dni) {
+        this.dni = dni;
+    }
+
+    public String getContraseña() {
+        return contraseña;
+    }
+
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
+    }
+
+    public Tarjeta getTarjeta() {
+        return tarjeta;
+    }
+
+    public void setTarjeta(Tarjeta tarjeta) {
+        this.tarjeta = tarjeta;
+    }
+
+    public Venta[] getVenta() {
+        return venta;
+    }
+
+    public void setVenta(Venta[] venta) {
+        this.venta = venta;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+    
+    
 }

@@ -19,6 +19,9 @@ public class Concierto{
         this.zona = new Zona[3];
     }
 
+    public Concierto() {
+    }
+    
     public boolean agregarZona(Zona zona){
         boolean result = false;
           for(int i=0; i<3; i++){

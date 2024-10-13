@@ -24,6 +24,9 @@ public class Tarjeta {
         this.CVV = CVV;
     }
 
+    public Tarjeta() {
+    }
+
     public int getNumero() {
         return numero;
     }
@@ -38,5 +41,22 @@ public class Tarjeta {
 
     public int getCVV() {
         return CVV;
-    }  
+    } 
+
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
+
+    public void setCVV(int CVV) {
+        this.CVV = CVV;
+    }
+    
 }

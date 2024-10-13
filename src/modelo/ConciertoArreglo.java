@@ -14,12 +14,20 @@ public class ConciertoArreglo{
         this.concierto = new Concierto[aforoConcierto];
     }
     
-    public void agregarConcierto(Concierto concierto){
+    public boolean agregarConcierto(Concierto concierto){
+        boolean result = false;
         if(indice < this.concierto.length){
             this.concierto[indice] = concierto;
             indice++;
+            result = true;
         }
+        return result;
     }
-    
+    public Concierto obtenerConcierto(int index) {
+        if (index >= 0 && index < indice) {
+            return concierto[index];
+        }
+        return null;
+    }
     
 }

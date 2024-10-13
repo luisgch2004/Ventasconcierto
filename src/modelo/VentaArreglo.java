@@ -8,12 +8,12 @@ package modelo;
 public class VentaArreglo {
     private int indice;
     private Venta[] venta;
+    private Entrada entrada;
 
     public VentaArreglo(int nrventas) {
         this.indice = 0;
         this.venta = new Venta[nrventas];
     }
-    
     
     void agregarVentas(Venta venta){
        if(indice < this.venta.length){
@@ -21,4 +21,12 @@ public class VentaArreglo {
            indice++;
        }
     }
+    
+    public Venta obtenerVenta(int index) {
+        if (index >= 0 && index < indice) {
+            return venta[index];
+        }
+        return null;
+    }
+    
 }

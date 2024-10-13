@@ -24,6 +24,9 @@ public class Zona {
         
     }
 
+    public Zona() {
+    }
+
     public String getNombre() {
         return nombre;
     }
@@ -48,7 +51,7 @@ public class Zona {
         this.precio = precio;
     }
     
-    private boolean generarEntradas(){
+    public boolean generarEntradas(){
         boolean resultado =true;
         for(int i=0; i< this.capacidad; i++){
             this.entradas[i] = new Entrada(i+1);
