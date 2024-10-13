@@ -60,9 +60,13 @@ public class Controlador {
                 persona.setDni(vista.dniPersona.getText());
                 persona.setContraseña(vista.contraseñaPersona.getText());
                 personas.agregarPersonas(persona);
-                vista.setVisible(false);
-                vista2.setLocationRelativeTo(null);
-                vista2.setVisible(true);
+                if (persona == null) {
+                    JOptionPane.showMessageDialog(vista, "Error al registrar");
+                }else{
+                    vista.setVisible(false);
+                    vista2.setLocationRelativeTo(null);
+                    vista2.setVisible(true);
+                }
             }
         });
         
@@ -82,7 +86,7 @@ public class Controlador {
             }
         });
         
-        this.vista.btnTarjeta.addActionListener( new ActionListener() {
+        this.vista2.btnTarjeta.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 tarjeta.setNombre(vista2.nombreTarjeta.getText());

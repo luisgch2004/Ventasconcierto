@@ -14,10 +14,10 @@ import java.util.Date;
 public class Tarjeta {
     private int numero;
     private String nombre;
-    private Date fecha;
+    private String fecha;
     private int CVV;
 
-    public Tarjeta(int numero, String nombre, Date fecha, int CVV) {
+    public Tarjeta(int numero, String nombre, String fecha, int CVV) {
         this.numero = numero;
         this.nombre = nombre;
         this.fecha = fecha;
@@ -35,7 +35,7 @@ public class Tarjeta {
         return nombre;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
@@ -51,7 +51,7 @@ public class Tarjeta {
         this.nombre = nombre;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 

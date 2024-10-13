@@ -9,11 +9,11 @@ import java.util.Date;
 
 public class Concierto{
     private String nombreConcierto;
-    private Date fecha;
+    private String fecha;
     private Zona[] zona;
 
 
-    public Concierto(String nombreConcierto, Date fecha){
+    public Concierto(String nombreConcierto, String fecha){
         this.nombreConcierto = nombreConcierto;
         this.fecha = fecha;
         this.zona = new Zona[3];

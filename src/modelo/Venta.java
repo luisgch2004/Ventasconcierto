@@ -10,11 +10,11 @@ import java.util.Date;
  * @author OCA-UIE
  */
 public class Venta {
-    private Date fecha;
+    private String fecha;
     private int monto;
     private Entrada entrada;
 
-    public Venta(Date fecha, int monto) {
+    public Venta(String fecha, int monto) {
         this.fecha = fecha;
         this.monto = monto;
     }
@@ -22,7 +22,7 @@ public class Venta {
     public Venta() {
     }
     
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
@@ -46,7 +46,7 @@ public class Venta {
         this.entrada = entrada;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 
