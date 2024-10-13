@@ -30,6 +30,4 @@ public class Venta {
     public boolean anular(){
         return entrada.liberar();
     }
-    
-    
 }

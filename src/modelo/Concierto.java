@@ -19,16 +19,15 @@ public class Concierto{
         this.zona = new Zona[3];
     }
 
-    public boolean agregarZona(Zona zona){
-        boolean result = false;
-          for(int i=0; i<3; i++){
-              if(this.zona[i] == null){
-                this.zona[i] = zona;
-                result = true;  
-              }
-          }
-        return result;
+    public boolean agregarZona(Zona nuevaZona) {
+    for (int i = 0; i < this.zona.length; i++) {
+        if (this.zona[i] == null) {  
+            this.zona[i] = nuevaZona;  
+            return true;  
+        }
     }
+    return false;  
+}
 
     public boolean eliminarZona(Zona zona){
         boolean result = false;
@@ -40,4 +39,16 @@ public class Concierto{
         }
         return result;
     }
+
+    public Zona[] getZonas() {
+        return this.zona;  
+    }
+    
+    @Override
+    public String toString() {
+        return  "\nNombre del Concierto: " + nombreConcierto + ", "
+                + "\nfecha: " + fecha + '}';   
+    }
+    
+    
 }

@@ -19,9 +19,55 @@ public class Persona {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.dni = dni;
+        this.contraseña = contraseña;
         this.tarjeta = null;
         this.venta = new Venta[4];
     }
+    
+    public Persona(){} // Constructor vacío
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellidos() {
+        return apellidos;
+    }
+
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
+    }
+
+    public String getDni() {
+        return dni;
+    }
+
+    public void setDni(String dni) {
+        this.dni = dni;
+    }
+
+    public Venta[] getVenta() {
+        return venta;
+    }
+
+    public void setVenta(Venta[] venta) {
+        this.venta = venta;
+    }
+
+    public String getContraseña() {
+        return contraseña;
+    }
+
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
+    }
+            
+    
+    
     public boolean registrarTarjeta(Tarjeta tarjeta){
         boolean result = false;
         if(this.tarjeta == null && tarjeta != null){

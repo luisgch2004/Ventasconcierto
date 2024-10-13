@@ -30,5 +30,23 @@ public class PersonaArreglo {
         }
     }
     
+    public Persona buscarPersonaPorDniYContraseña(String dni, String contraseña){
+        for(int i = 0; i < indice; i++){
+            if(this.persona[i].getDni().equals(dni) && this.persona[i].getContraseña().equals(contraseña)){
+                return this.persona[i];
+            }
+        }
+        return null;
+    }
+
     
+    public Persona buscarPersonaPorDni(String dni){
+        for(int i = 0; i < indice; i++){
+            if(this.persona[i].getDni().equals(dni)){
+                return this.persona[i];
+            }
+        }
+        return null;
+    }
 }
+

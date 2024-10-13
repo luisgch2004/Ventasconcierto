@@ -5,10 +5,6 @@
  */
 package modelo;
 
-/**
- *
- * @author OCA-UIE
- */
 public class Entrada {
     private int numero;
     private String estado;

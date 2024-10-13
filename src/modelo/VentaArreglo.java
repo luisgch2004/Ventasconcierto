@@ -13,8 +13,7 @@ public class VentaArreglo {
         this.indice = 0;
         this.venta = new Venta[nrventas];
     }
-    
-    
+       
     void agregarVentas(Venta venta){
        if(indice < this.venta.length){
            this.venta[indice] = venta;
