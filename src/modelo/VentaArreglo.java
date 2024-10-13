@@ -27,6 +27,16 @@ public class VentaArreglo {
             return venta[index];
         }
         return null;
+        
     }
+
+    public int getIndice() {
+        return indice;
+    }
+
+    public void setIndice(int indice) {
+        this.indice = indice;
+    }
+    
     
 }

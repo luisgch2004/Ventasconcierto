@@ -24,7 +24,7 @@ public class Concierto{
     
     public boolean agregarZona(Zona zona){
         boolean result = false;
-          for(int i=0; i<3; i++){
+          for(int i = 0; i < this.zona.length; i++){
               if(this.zona[i] == null){
                 this.zona[i] = zona;
                 result = true;  
@@ -32,10 +32,18 @@ public class Concierto{
           }
         return result;
     }
-
+    
+    public Zona obtenerZona(String zonatipo){
+        for (int i=0; i < this.zona.length; i++) {
+            if(this.zona[i].getNombre().equalsIgnoreCase(zonatipo)){
+               return this.zona[i];
+            }
+        }
+        return null;
+    }
     public boolean eliminarZona(Zona zona){
         boolean result = false;
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < this.zona.length; i++) {
             if(this.zona[i] == zona){
                 this.zona[i] = null;
                 result = true;

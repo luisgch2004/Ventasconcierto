@@ -63,6 +63,7 @@ public class Persona {
                 if(this.venta[i] == null){
                     this.venta[i] = venta;
                     result = true;
+                    return result;
                 }else{
                     estado = "Limite de venta alcanzado";
                 }

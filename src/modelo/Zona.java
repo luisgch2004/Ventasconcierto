@@ -59,15 +59,16 @@ public class Zona {
         return resultado;
     }
     
-    public boolean venderEntrada(int numero){
-        boolean resultado = false;
+    public Entrada venderEntrada(int numero){
         if(this.entradas[numero-1].disponible()){
             this.entradas[numero-1].vender();
+            return this.entradas[numero-1];
+        }else{
+            return null;
         }
-        return resultado;
     }
     
-    public Entrada[] mostrarEntrada(){
-        return this.entradas;
+    public Entrada mostrarEntrada(int numero){
+        return this.entradas[numero-1];
     }   
 }

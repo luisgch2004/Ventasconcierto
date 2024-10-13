@@ -51,22 +51,37 @@ public class Controlador {
         this.vista2 = vista2;
         this.vista3 = vista3;
         
+        Zona zona1 = new Zona("Platinum", 50, 550);
+        Zona zona2 = new Zona("VIP", 50, 400);
+        Zona zona3 = new Zona("General", 50, 250);
+        zona1.generarEntradas();
+        zona2.generarEntradas();
+        zona3.generarEntradas();
+        concierto.agregarZona(zona1);
+        concierto.agregarZona(zona2);
+        concierto.agregarZona(zona3);
         
         this.vista.btnRegistroPersona.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                persona.setNombre(vista.nombrePersona.getText());
-                persona.setApellidos(vista.apellidosPersona.getText());
-                persona.setDni(vista.dniPersona.getText());
-                persona.setContraseña(vista.contraseñaPersona.getText());
-                personas.agregarPersonas(persona);
-                if (persona == null) {
-                    JOptionPane.showMessageDialog(vista, "Error al registrar");
+                String nombre = vista.nombrePersona.getText();
+                String apellido = vista.apellidosPersona.getText();
+                String dni = vista.dniPersona.getText();
+                String contraseña = vista.contraseñaPersona.getText();
+                if (nombre.isEmpty() || apellido.isEmpty() || dni.isEmpty() || contraseña.isEmpty()) {
+                    JOptionPane.showMessageDialog(vista, "Error al registrar, por favor llene todos los campos");
                 }else{
+                    persona.setNombre(vista.nombrePersona.getText());
+                    persona.setApellidos(vista.apellidosPersona.getText());
+                    persona.setDni(vista.dniPersona.getText());
+                    persona.setContraseña(vista.contraseñaPersona.getText());
+                    personas.agregarPersonas(persona);
                     vista.setVisible(false);
                     vista2.setLocationRelativeTo(null);
                     vista2.setVisible(true);
+                    JOptionPane.showMessageDialog(vista2, "Registro exitoso");
                 }
+                
             }
         });
         
@@ -89,12 +104,20 @@ public class Controlador {
         this.vista2.btnTarjeta.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                tarjeta.setNombre(vista2.nombreTarjeta.getText());
-                tarjeta.setNumero(Integer.parseInt(vista2.numeroTarjeta.getText()));
-                tarjeta.setCVV(Integer.parseInt(vista2.CVVTarjeta.getText()));
-                tarjeta.setFecha(vista2.fechaTarjeta.getText());
-                persona.registrarTarjeta(tarjeta);
-                JOptionPane.showMessageDialog(vista2, "Registro exitoso");
+                String nombreTarjeta= vista2.nombreTarjeta.getText();
+                String numeroTarjeta = vista2.numeroTarjeta.getText();
+                String CVVTarjeta = vista2.CVVTarjeta.getText();
+                String fechaTarjeta = vista2.fechaTarjeta.getText();
+                if (nombreTarjeta.isEmpty() || numeroTarjeta.isEmpty()|| CVVTarjeta.isEmpty() || fechaTarjeta.isEmpty()) {
+                    JOptionPane.showMessageDialog(vista2, "Error al registrar, por favor llene todos los campos");
+                }else{
+                    tarjeta.setNombre(nombreTarjeta);
+                    tarjeta.setNumero(Integer.parseInt(numeroTarjeta));
+                    tarjeta.setCVV(Integer.parseInt(CVVTarjeta));
+                    tarjeta.setFecha(fechaTarjeta);
+                    persona.registrarTarjeta(tarjeta);
+                    JOptionPane.showMessageDialog(vista2, "Registro exitoso");
+                }
             }
         });
         
@@ -139,22 +162,42 @@ public class Controlador {
         this.vista3.btnComprarEntrada.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                zona.setNombre(vista3.ZonaTipo.getToolTipText());
-                entrada.setNumero(Integer.parseInt(vista3.numeroEntrada.getText()));
-                venta.setFecha(vista3.FechaEntrada.getText());
-                venta.setMonto(Integer.parseInt(vista3.montoEntreada.getText()));
-                zona.venderEntrada(entrada.getNumero());
-                persona.comprar(venta);
-                JOptionPane.showMessageDialog(vista3, "Compra existosa");
+                try {
+                    int numeroEntrada = Integer.parseInt(vista3.numeroEntrada.getText());
+                    String fechaEntrada = vista3.FechaEntrada.getText();
+                    int montoEntrada = Integer.parseInt(vista3.montoEntreada.getText());
+                    
+                    Zona zona = concierto.obtenerZona(vista3.ZonaTipo.getToolTipText());
+                    Entrada entrada = zona.venderEntrada(numeroEntrada);
+                    
+                    if("disponible".equals(entrada.getEstado())){
+                        JOptionPane.showMessageDialog(vista3, "Entrada no disponible");
+                    }else{
+                        Venta venta = new Venta (fechaEntrada, montoEntrada, entrada);
+                        persona.comprar(venta);
+                        vista3.IndiceEntradasVenta.setText(String.valueOf(ventas.getIndice()));
+                        JOptionPane.showMessageDialog(vista3, "compra exitosa");
+                    }
+                } catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(vista3, "No se pudo realizar la venta");  
+                }
             }
         });
         
         this.vista3.btnAnular.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-               int numero = Integer.parseInt(vista3.IndiceEntrada.getText());
-               persona.anularVenta(numero);
-               JOptionPane.showMessageDialog(vista3, "Anulacion exitosa");
+                try {
+                    int numero = Integer.parseInt(vista3.IndiceEntrada.getText());
+                    boolean anularVenta = persona.anularVenta(numero);
+                    if (anularVenta) {
+                        JOptionPane.showMessageDialog(vista3, "Anulacion exitosa"); 
+                    }else{
+                        JOptionPane.showMessageDialog(vista3, "No se encontro el boleto a anular");
+                    }   
+                } catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(vista3, "Error al buscar");
+                }
             }
         });
     }

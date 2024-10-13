@@ -22,6 +22,7 @@ public class App {
         PersonaArreglo personas = new PersonaArreglo(150);
         VentaArreglo ventas = new VentaArreglo(150);
         Concierto concierto = new Concierto("Grupo 5", "2024-10-14");
+        conciertos.agregarConcierto(concierto);
         Persona persona = new Persona();
         Tarjeta tarjeta = new Tarjeta();
         Entrada entrada = new Entrada();

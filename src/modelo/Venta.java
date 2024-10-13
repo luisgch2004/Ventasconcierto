@@ -14,9 +14,10 @@ public class Venta {
     private int monto;
     private Entrada entrada;
 
-    public Venta(String fecha, int monto) {
+    public Venta(String fecha, int monto, Entrada entrada) {
         this.fecha = fecha;
         this.monto = monto;
+        this.entrada = entrada;
     }
 
     public Venta() {
