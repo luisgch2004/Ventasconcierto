@@ -12,19 +12,24 @@ import java.util.Date;
  * @author OCA-UIE
  */
 public class Tarjeta {
-    private int numero;
+    private String numero;
     private String nombre;
-    private Date fecha;
+    private String fecha;
     private int CVV;
 
-    public Tarjeta(int numero, String nombre, Date fecha, int CVV) {
+    public Tarjeta(String numero, String nombre, String fecha, int CVV) {
         this.numero = numero;
         this.nombre = nombre;
         this.fecha = fecha;
         this.CVV = CVV;
     }
 
-    public int getNumero() {
+    public Tarjeta() {
+    }
+    
+    
+
+    public String getNumero() {
         return numero;
     }
 
@@ -32,11 +37,29 @@ public class Tarjeta {
         return nombre;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
     public int getCVV() {
         return CVV;
     }  
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
+    public void setCVV(int CVV) {
+        this.CVV = CVV;
+    }
+
+    
 }

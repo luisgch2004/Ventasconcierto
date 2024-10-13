@@ -5,10 +5,7 @@
  */
 package modelo;
 import java.util.Date;
-/**
- *
- * @author OCA-UIE
- */
+
 public class Venta {
     private Date fecha;
     private int monto;

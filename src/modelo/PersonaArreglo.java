@@ -14,8 +14,6 @@ public class PersonaArreglo {
         this.persona = new Persona[aforo];
     }
     
-    
-    
     public void mostrarPersonaArray(){
         for (int i = 0; i <persona.length; i++) {
             System.out.println("Persona N°" + i+1);
@@ -39,7 +37,6 @@ public class PersonaArreglo {
         return null;
     }
 
-    
     public Persona buscarPersonaPorDni(String dni){
         for(int i = 0; i < indice; i++){
             if(this.persona[i].getDni().equals(dni)){

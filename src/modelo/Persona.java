@@ -20,11 +20,12 @@ public class Persona {
         this.apellidos = apellidos;
         this.dni = dni;
         this.contraseña = contraseña;
-        this.tarjeta = null;
         this.venta = new Venta[4];
     }
     
-    public Persona(){} // Constructor vacío
+    public Persona(){
+         this.venta = new Venta[4];
+    } // Constructor vacío
 
     public String getNombre() {
         return nombre;
@@ -53,6 +54,16 @@ public class Persona {
     public Venta[] getVenta() {
         return venta;
     }
+    
+    //nos servira para la compra de entradas
+    public Tarjeta getTarjeta() {
+        return tarjeta;
+    }
+
+    public void setTarjeta(Tarjeta tarjeta) {
+        this.tarjeta = tarjeta;
+    }
+    
 
     public void setVenta(Venta[] venta) {
         this.venta = venta;
@@ -98,15 +109,16 @@ public class Persona {
     
     public boolean comprar(Venta venta){
         boolean result = false;
-        if(tarjeta != null){
-            for(int i=0; i<this.venta.length; i++){
-                if(this.venta[i] == null){
-                    this.venta[i] = venta;
-                    result = true;
-                }
+    if (tarjeta != null) {
+        for (int i = 0; i < this.venta.length; i++) {
+            if (this.venta[i] == null) {
+                this.venta[i] = venta;
+                result = true;
+                break; // Rompemos el bucle después de registrar la venta
             }
         }
-        return result;
+    }
+    return result;
     }
     
     public void mostrarPersona(){
